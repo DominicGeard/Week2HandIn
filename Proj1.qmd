@@ -71,6 +71,9 @@ SSR
 se <- sqrt(diag(as.numeric(res_var)*(solve(t(X)%*%X))))
 t_values <- B/se
 p_values <- 2 * pt(-abs(t_values), df = n - k)
+se
+t_values
+p_values
 ```
 
 The linear regression model summary:
