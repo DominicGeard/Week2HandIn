@@ -1,0 +1,53 @@
+---
+title: "Proj2"
+author: "DominicGeard"
+format: html
+---
+
+## Project 2
+
+```{r}
+library(ggplot2)
+#Initialisation of vectors
+set.seed(1)
+n <- 100
+X <- 1:n
+e <- rnorm(n, mean = 0, sd = 0.2)
+Y <- sin(X/10) + e
+smth <- numeric(n)
+
+
+#Lowess function creation
+customLowess <- function(x,y,f){
+  k <- ceiling(n*f)
+  for(i in X){
+    X_i = X[i]
+    distances <- abs(X - X_i)
+    knn_indices <- order(distances)[0:k+1]
+    knn_distances <- distances[knn_indices]
+    knn_values <- X[knn_indices]
+    dmax = knn_distances[k+1]
+    XM = cbind(1,knn_values)
+    W <- matrix(0, nrow = k + 1, ncol = k + 1)
+    YM = rep(1,k+1)
+    for(j in 0:k+1){
+      W[j,j]=(1-(knn_distances[j]/dmax)^3)^3
+    }
+    for(p in 1:k+1){
+      a = knn_values[p]
+      YM[p] = Y[a]
+    }
+  B <- solve(t(XM)%*%W%*%XM)%*%t(XM)%*%W%*%YM
+  y_hat = B[1] + B[2]*X_i
+  smth[i]=y_hat
+  }
+  return(smth)
+}
+
+ans = customLowess(X,Y,f=0.3)
+L <- lowess(X,Y,f=0.3,iter=0)
+plot(X, Y, type = "o", col = "black", main = "Plot of smoothing function comparison",ylab = "Y", xlab = "X")
+lines(X,ans,col="blue",lwd=2)
+lines(L, col="red",lwd=2)
+
+```

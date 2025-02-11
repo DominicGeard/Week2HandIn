@@ -1,0 +1,68 @@
+---
+title: "Week2HandIn"
+author: "DominicGeard"
+format: html
+---
+
+## Project 1
+
+The following code shows which rows contain NA values
+
+```{r}
+df <- data.frame(airquality)
+naRows <- which(apply(df,1,function(row) any(is.na(row))))
+
+naRows 
+```
+
+The following Code shows the mean of Temperature and Ozone respectively.
+
+```{r}
+MeanTemp <-  mean(df$Temp, na.rm = TRUE)
+MeanTemp
+MeanOzone <- mean(df$Ozone, na.rm = TRUE)
+MeanOzone
+```
+
+The following Code shows the standard deviation of Temperature and Ozone respectively.
+
+```{r}
+sdTemp <- sd(df$Temp, na.rm = TRUE)
+sdOzone <- sd(df$Ozone, na.rm = TRUE)
+sdTemp
+sdOzone
+```
+
+The following Code shows the maximum of Temperature and Ozone respectively.
+
+```{r}
+maxTemp <- max(df$Temp, na.rm = TRUE)
+maxOzone <- max(df$Ozone, na.rm = TRUE)
+maxTemp
+maxOzone
+```
+
+The following Code shows the minimum of Temperature and Ozone respectively.
+
+```{r}
+minTemp <- min(df$Temp, na.rm = TRUE)
+minOzone <- min(df$Ozone, na.rm = TRUE)
+minTemp
+minOzone
+```
+
+Finding the estimate for the cars data set fitted to a linear regression model.
+
+```{r}
+Y <- as.matrix(cars$dist)
+X <- cbind(1, cars$speed)
+est <- solve(t(X)%*%X)%*%t(X)%*%Y
+est
+```
+
+The linear regression model summary:
+
+```{r}
+fit <- lm(cars$dist~cars$speed)
+summary(fit) 
+```

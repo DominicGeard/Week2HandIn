@@ -1,0 +1,31 @@
+project:
+  title: "Dom's Week2 Hand In"
+  type: website
+  render:
+  - index.qmd
+  - Proj1.qmd
+  - Proj2.qmd
+  - Proj3.qmd
+  output-dir: _site
+website:
+  title: Statistical Computing
+  sidebar:
+    border: true
+    background: light
+    position: right
+  navbar:
+    search: true
+    background: light
+    left:
+      - href: Proj1.qmd
+        text: Project 1, Hand-in 1
+      - href: Proj2.qmd
+        text: Project 2, Hand-in 1
+      - href: Proj3.qmd
+        text: Project 3, Hand-in 1
+format:
+  html:
+    theme: cosmo
+    toc: true
+    toc-depth: 3
+    toc-location: left
