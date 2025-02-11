@@ -41,7 +41,7 @@ dist_tbl <- flight1 |>
     sd_distance = sd(distance)
   )
 dist_tbl <- dist_tbl |> arrange(mean_distance)
-dist_tbl
+head(dist_tbl)
 
 ```
 
@@ -68,7 +68,7 @@ flights3 <-  flights|>
   summarize(
     avg_delay = mean(dep_delay, na.rm = TRUE)
   )
-flights3
+head(flights3)
 ```
 
 Q5
