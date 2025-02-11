@@ -98,7 +98,7 @@ flights4 <- flights |>
               left_join(airlines |> select(carrier, name), by = "carrier")
 ##OUTPUT
 #6.1
-flights4$flightPath
+head(flights4$flightPath)
 #6.2
 
 
