@@ -2,7 +2,7 @@ project:
   title: "Dom's Week2 Hand In"
   type: website
   render:
-  - index.qmd
+  - LandingPage.qmd
   - Proj1.qmd
   - Proj2.qmd
   - Proj3.qmd
@@ -17,6 +17,8 @@ website:
     search: true
     background: light
     left:
+      - href: LandingPage.qmd
+        text: LandingPage, Hand-in 1
       - href: Proj1.qmd
         text: Project 1, Hand-in 1
       - href: Proj2.qmd

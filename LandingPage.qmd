@@ -1,0 +1,11 @@
+---
+title: "LandingPage"
+author: "Dominic"
+format: html
+---
+
+## Welcome fellow classmate
+
+Welcome to my project. Its amazing right? Good luck for the year!!!
+
+Here is a link to my Github repository: [Link to Github](https://github.com/DominicGeard/Week2HandIn)
